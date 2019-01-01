@@ -22,13 +22,13 @@ h2 {
 
 #content { 
     float:left;
-    width:60%;
+    width:70%;
     padding:0 0 0 30px; 
 }
 
 #sidebar { 
     float:right;
-    width:30%;
+    width:20%;
     padding:10px;
     background:#efefef; 
     height:100%;
@@ -89,4 +89,8 @@ input[type=submit] {
     font-weight:bold;
     font-size:12px;
     color:#666;
+}
+
+span > a {
+    padding: 10px;
 }
