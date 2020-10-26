@@ -94,3 +94,8 @@ input[type=submit] {
 span > a {
     padding: 10px;
 }
+
+p.tags {
+    color: #00abff;
+    font-weight: bold;
+}

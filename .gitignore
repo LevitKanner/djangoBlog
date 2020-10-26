@@ -1,1 +1,2 @@
-db.*
+./db.*
+./mysite/settings.py
