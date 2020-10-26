@@ -1,7 +1,7 @@
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
-from .models import Post
-from .forms import EmailPostForm
+from .models import Post, Comment
+from .forms import EmailPostForm, CommentForm
 from django.core.mail import send_mail
 
 
@@ -21,7 +21,26 @@ def post_detail(request, year, month, day, post):
                               publish__year=year, 
                               publish__month=month,
                               publish__day=day)
-    return render(request, 'blog/post/detail.html', {'post': post})
+    #list active comments 
+    comments = post.comments.filter(active=True)
+    new_comment = None
+    
+    if request.method == 'POST':
+        #a comment was posted
+        form = CommentForm(data=request.POST)
+        if form.is_valid():
+            #create comment object but don't save to database yet.
+            new_comment = form.save(commit=False)
+            #assign comment to current post
+            new_comment.post = post
+            #save comment to database
+            new_comment.save()
+    else:
+        form = CommentForm()      
+    return render(request, 'blog/post/detail.html', {'post': post,
+                                                     'comments': comments,
+                                                     'new_comment': new_comment,
+                                                     'form': form})
 
 
 
@@ -48,3 +67,4 @@ def post_share(request, post_id):
     else:
         form = EmailPostForm()
     return render(request, 'blog/post/share.html', {'post': post, 'form': form, 'sent': sent })
+

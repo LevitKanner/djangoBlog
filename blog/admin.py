@@ -18,5 +18,6 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'post', 'created', 'active')
     list_filter = ('created', 'active', 'updated')
     search_fields = ('name', 'email', 'body')
+    date_hierarchy = ('created')
     
     
