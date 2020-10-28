@@ -1,2 +1,4 @@
-./db.*
-./mysite/settings.py
+db.*
+mysite/__pychache__
+blog/__pychache__
+db.sqlite3
