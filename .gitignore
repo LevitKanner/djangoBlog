@@ -1,4 +1,3 @@
 db.*
-mysite/__pychache__
-blog/__pychache__
+*/__pychache__
 db.sqlite3
