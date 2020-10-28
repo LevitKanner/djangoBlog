@@ -1,0 +1,18 @@
+
+
+<h1>Hey there!</h1>
+<i>{{info.name}}</i>
+
+<h2>Tech Stack:</h2>
+<ul>
+{% for language in languages %}
+<li>{{language.name}}</li>
+{% endfor %}
+</ul>
+<p> <a href="{{info.twitter}}"> Twitter </a> </p>
+<p> <a href="{{info.github}}"> Github </a> </p>
+<p> <a href="mailto: {{info.email}}" > Email </a> </p>
+<p> <a href="tel: {{info.telephone}}" > Call </a> </p>
+
+
+<p><a href="{% url 'blog:post_list' %}"> Blogs</a></p>
