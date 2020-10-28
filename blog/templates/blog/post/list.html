@@ -5,7 +5,9 @@
     {% if tag %}
     <h2>Posts tagged with "{{tag.name}}"</h2>
     {% endif %}
+
     {% for post in posts %}
+    <div class="post_div">
         <h2>
             <a href="{{ post.get_absolute_url }}">
                 {{ post.title }} 
@@ -23,8 +25,12 @@
         <p class="date">
             Published {{ post.publish }} by {{ post.author }}
         </p>
-
-{{ post.body|truncatewords:30|linebreaks }}
+        <div class="post_content">
+            {{ post.body|truncatewords:20|linebreaks }}
+        </div>
+        
+    </div>
     {% endfor %}
+
 {% include 'blog/pagination.html' with page=posts %}
 {% endblock %}
