@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 {% block title %} Levitate With Swift {% endblock %}
 {% block content %}
     <h1> Blog </h1>
@@ -26,7 +27,7 @@
             Published {{ post.publish }} by {{ post.author }}
         </p>
         <div class="post_content">
-            {{ post.body|truncatewords:20|linebreaks }}
+            {{ post.body|markdown|truncatewords_html:20 }}
         </div>
         
     </div>

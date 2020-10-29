@@ -1,6 +1,8 @@
 from django import template
 from ..models import Post
 from django.db.models import Count
+from django.utils.safestring import mark_safe
+import markdown
 
 register = template.Library()
 
@@ -19,3 +21,11 @@ def most_commented(count=5):
     return Post.published\
         .annotate(total_comments=Count('comments'))\
             .order_by('-total_comments')[:count]
+            
+
+#Defining a custom filter
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text,extensions=['markdown.extensions.extra',
+                                                         'markdown.extensions.codehilite', 
+                                                         'markdown.extensions.toc']))

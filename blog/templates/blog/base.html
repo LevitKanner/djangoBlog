@@ -33,6 +33,8 @@
         <ul>
             {% for post in most_commented_posts %}
             <li><a href="{{post.get_absolute_url}}">{{post.title}}</a></li>
+            {% empty %}
+            <p>No posts available</p>
             {% endfor %}
         </ul>
     </div>
