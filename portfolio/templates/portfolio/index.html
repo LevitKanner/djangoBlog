@@ -1,5 +1,6 @@
 
-
+{% extends 'blog/base.html' %}
+{% block content %}
 <h1>Hey there!</h1>
 <i>{{info.name}}</i>
 
@@ -16,3 +17,4 @@
 
 
 <p><a href="{% url 'blog:post_list' %}"> Blogs</a></p>
+{% endblock %}

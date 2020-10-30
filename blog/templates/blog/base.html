@@ -17,11 +17,10 @@
     <!-- Side Bar -->
     <div id="sidebar">
         <h2>
-            <a href="{% url 'blog:post_list' %}">  My blog </a>
-           
+            <a href="{% url 'blog:post_list' %}"> Blog </a>
         </h2>
-        <p>Welcome to my blog!</p>
-        <p>There are {% total_posts %} posts published.</p>
+        <p>I have {% total_posts %} posts published.</p>
+        <p><a href="{% url 'blog:posts_feed' %}"> Subscribe to my RSS feed</a></p>
 
         <!-- Show most recent posts with custom tag -->
         <h4>Latest Posts</h3>
